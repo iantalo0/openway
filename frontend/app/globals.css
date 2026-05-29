@@ -1,0 +1,168 @@
+/* feat(styles): Tailwind v4 with Etherscan design system + backward compat aliases */
+@import "tailwindcss";
+
+@theme {
+  /* Primary ES tokens */
+  --color-es-navy: #21325b;
+  --color-es-navy-dark: #1a2847;
+  --color-es-navy-light: #2a3f6e;
+  --color-es-blue: #0784c3;
+  --color-es-blue-hover: #066a9c;
+  --color-es-blue-light: #e6f4fb;
+  --color-es-blue-faint: #f0f9ff;
+  --color-es-bg: #f8f9fa;
+  --color-es-bg-card: #ffffff;
+  --color-es-bg-hover: #f1f3f5;
+  --color-es-bg-dark: #e9ecef;
+  --color-es-text: #212529;
+  --color-es-text-secondary: #6c757d;
+  --color-es-text-muted: #adb5bd;
+  --color-es-border: #e9ecef;
+  --color-es-border-light: #f1f3f5;
+  --color-es-border-dark: #dee2e6;
+  --color-es-success: #00a186;
+  --color-es-success-bg: #e6f7f4;
+  --color-es-danger: #de4437;
+  --color-es-danger-bg: #fde8e7;
+  --color-es-warning: #f5a623;
+  --color-es-warning-bg: #fff4e5;
+  --color-es-info: #3498db;
+  --color-es-info-bg: #ebf5fb;
+  --color-es-purple: #6c5ce7;
+  --color-es-purple-bg: #f0eefc;
+
+  /* Legacy etherscan aliases (DEPRECATED — migrate to es-*) */
+  --color-etherscan-blue: #0784c3;
+  --color-etherscan-blue-hover: #066a9c;
+  --color-etherscan-bg-body: #f8f9fa;
+  --color-etherscan-bg-card: #ffffff;
+  --color-etherscan-text-primary: #212529;
+  --color-etherscan-text-secondary: #6c757d;
+  --color-etherscan-border: #e9ecef;
+  --color-etherscan-success: #00a186;
+  --color-etherscan-danger: #de4437;
+
+  --font-family-mono:
+    "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+  --radius-es: 6px;
+  --radius-etherscan: 8px;
+  --shadow-es-card: 0 0.5rem 1.2rem rgba(189, 197, 209, 0.2);
+  --shadow-etherscan-card: 0 0.5rem 1.2rem rgba(189, 197, 209, 0.2);
+}
+
+body {
+  background-color: var(--color-es-bg);
+  color: var(--color-es-text);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* ES Utilities */
+@utility es-card {
+  background-color: var(--color-es-bg-card);
+  border: 1px solid var(--color-es-border);
+  border-radius: var(--radius-es);
+  box-shadow: var(--shadow-es-card);
+}
+
+@utility es-mono {
+  font-family: var(--font-family-mono);
+  font-size: 12px;
+  letter-spacing: -0.01em;
+}
+
+@utility es-badge-success {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+  background-color: var(--color-es-success-bg);
+  color: var(--color-es-success);
+}
+
+@utility es-badge-pending {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+  background-color: var(--color-es-warning-bg);
+  color: #b45309;
+}
+
+@utility es-badge-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+  background-color: var(--color-es-danger-bg);
+  color: var(--color-es-danger);
+}
+
+@utility es-badge-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+  background-color: var(--color-es-info-bg);
+  color: var(--color-es-info);
+}
+
+/* Legacy etherscan utility aliases */
+@utility etherscan-card {
+  background-color: var(--color-etherscan-bg-card);
+  border: 1px solid var(--color-etherscan-border);
+  border-radius: var(--radius-etherscan);
+  box-shadow: var(--shadow-etherscan-card);
+  padding: 1.25rem;
+}
+
+@keyframes scan {
+  0%,
+  100% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
