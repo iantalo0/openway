@@ -1,0 +1,17 @@
+backend:
+  build: ./backend
+  container_name: openway_backend
+  depends_on:
+    postgres:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+  env_file: .env
+  environment:
+    DATABASE_URL: postgres://openway:openway_secret@postgres:5432/openway_db?sslmode=disable
+    REDIS_URL: redis://redis:6379/0
+  ports:
+    - "8080:8080"
+    - "8081:8081"
+  command: >
+    sh -c "/app/openway-api & /app/openway-relayer"
